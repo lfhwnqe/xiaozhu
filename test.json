@@ -1,0 +1,17 @@
+{
+  "data": [{
+    "city": "哈尔滨",
+    "pinyin": "haerbin",
+    "houseList": [{
+      "price": "298",
+      "img": "",
+      "type": "简约",
+      "title": "窗边闲坐，俯瞰松花江畔",
+      "guest": {
+        "img": "",
+        "Identity": "房客",
+        "comment": "评论"
+      }
+    }]
+  }]
+}
