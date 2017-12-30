@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>message</p>
+  <div class="message">
+    <div class="head">消息</div>
     <Nav></Nav>
   </div>
 </template>
@@ -14,3 +14,12 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .message {
+    .head {
+      padding: 5px;
+      border-bottom: 0.5px solid gray;
+    }
+  }
+</style>

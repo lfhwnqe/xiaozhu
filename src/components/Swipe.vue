@@ -3,7 +3,7 @@
     <ul class="bannerIndex">
       <li v-for="(list ,index) in houseList" :class="{imgActive:indexActive===index}">{{index + 1}}</li>
     </ul>
-    <mt-swipe class="bannerImg" :auto="0" :show-indicators="false" @change="handleChange">
+    <mt-swipe class="bannerImg" :auto="8000" :show-indicators="false" @change="handleChange">
       <mt-swipe-item v-for="list in listData">
         <img class="listImg" :src="list.url" alt="">
       </mt-swipe-item>

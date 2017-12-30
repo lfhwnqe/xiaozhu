@@ -18,7 +18,9 @@ const routes = [
     name: 'main',
     component: main,
     meta: {
-      name: '发现'
+      name: '发现',
+      url: '../static/img/discover.svg',
+      actUrl: '../static/img/disac.svg'
     }
   },
   {
@@ -26,7 +28,9 @@ const routes = [
     name: 'order',
     component: order,
     meta: {
-      name: '订单'
+      name: '订单',
+      url: '../static/img/order.svg',
+      actUrl: '../static/img/orderac.svg'
     }
   },
   {
@@ -34,7 +38,9 @@ const routes = [
     name: 'message',
     component: message,
     meta: {
-      name: '消息'
+      name: '消息',
+      url: '../static/img/meg.svg',
+      actUrl: '../static/img/msgac.svg'
     }
   },
   {
@@ -42,7 +48,9 @@ const routes = [
     name: 'me',
     component: me,
     meta: {
-      name: '我'
+      name: '我',
+      url: '../static/img/me.svg',
+      actUrl: '../static/img/meact.svg'
     }
   }
 ]
