@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import {router, routes} from './router'
 import {Row, Col, Button} from 'element-ui'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -19,6 +19,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  routes,
   template: '<App/>',
   components: {App}
 })

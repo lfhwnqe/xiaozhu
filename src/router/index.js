@@ -16,24 +16,37 @@ const routes = [
   {
     path: '/main',
     name: 'main',
-    component: main
-  }, {
-    path: '/me',
-    name: 'me',
-    component: me
-  },
-  {
-    path: '/message',
-    name: 'message',
-    component: message
+    component: main,
+    meta: {
+      name: '发现'
+    }
   },
   {
     path: '/order',
     name: 'order',
-    component: order
+    component: order,
+    meta: {
+      name: '订单'
+    }
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: message,
+    meta: {
+      name: '消息'
+    }
+  },
+  {
+    path: '/me',
+    name: 'me',
+    component: me,
+    meta: {
+      name: '我'
+    }
   }
 ]
 
 const router = new Router({routes})
 
-export default router
+export {router, routes}

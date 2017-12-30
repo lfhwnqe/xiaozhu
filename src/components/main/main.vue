@@ -13,17 +13,18 @@
     </div>
     <!--综合推荐房间与活动-->
     <div class="actions">
-      <div class="action">
+      <div class="action" v-for="list in recommendList">
         <!-- 需要v-for渲染 -->
-        <h4>旅行在故乡</h4>
-        <h5>因为一个家  许下出那里旅行的愿望</h5>
+        <h4>{{list.title}}</h4>
+        <h5>{{list.content}}</h5>
         <div class="banner">
-          <mt-swipe :auto="4000" :show-indicators="false">
-            <mt-swipe-item>1</mt-swipe-item>
-            <mt-swipe-item>2</mt-swipe-item>
-            <mt-swipe-item>3</mt-swipe-item>
-          </mt-swipe>
+          <Swipe :listData="list.houseLists" :listInfo="list"></Swipe>
         </div>
+      </div>
+      <div class="action onlyAction" v-for="list in actionList">
+        <h4>{{list.title}}</h4>
+        <h5>{{list.content}}</h5>
+        <Swipe :listData=" list.houseLists" :listInfo="list"></Swipe>
       </div>
     </div>
     <!--提供的服务-->
@@ -40,9 +41,10 @@
       <div class="audio-banner"></div>
     </div>
     <!--city列表-->
-    <div class="city-lists">
-      <div class="city">西安</div>
-      <div class="house-banner">这个城市的5个房间轮播图</div>
+    <div class="city-lists" v-for="list in cityLists">
+      <div class="city">{{list.city}}
+        <p>{{list.pinyin}}</p></div>
+      <Swipe :listData=" list.houseList" :listInfo="list"></Swipe>
       <div class="comment">这个城市的5个房间分别房客的评论</div>
     </div>
     <Nav></Nav>
@@ -51,28 +53,70 @@
 
 <script>
   import Nav from '../Nav/Nav'
+  import {rap} from '@/assets/js/host-config.js'
+  import Swipe from '../Swipe.vue'
+  import axios from 'axios'
 
+  let url = {
+    list: '/GET/main/recommend',
+    action: '/GET/main/actions',
+    cityLists: '/GET/main/roomLists'
+  }
+  url = rap(url)
   export default {
+    data () {
+      return {
+        recommendList: null,
+        actionList: null,
+        cityLists: null
+      }
+    },
+    created: function () {
+      this.getActionRoomList()
+      this.getActionList()
+      this.getCityRoom()
+    },
+    methods: {
+      getActionRoomList () {
+        axios.get(url.list).then((res) => {
+          this.recommendList = res.data.result
+        })
+      },
+      getActionList () {
+        axios.get(url.action).then((res) => {
+          this.actionList = res.data.result
+        })
+      },
+      getCityRoom () {
+        axios.get(url.cityLists).then((res) => {
+          this.cityLists = res.data.result
+        })
+      }
+    },
     components: {
-      Nav
+      Nav,
+      Swipe
     }
   }
 </script>
 
 <style lang="scss">
   #main {
+    width: 100vw;
+    position: relative;
     .audio {
       margin: auto;
       width: 100vw;
       height: 50vh;
     }
     .search-bar {
+      z-index: 2;
       position: fixed;
-      width: 100%;
+      width: 100vw;
       top: 10px;
       .search-body {
         margin: auto;
-        width: 90%;
+        width: 95%;
         .search-btn {
           background: #ED5281;
           border: none;
@@ -81,9 +125,18 @@
       }
     }
     .actions {
+      .onlyAction {
+        .bannerImg {
+          height: 50vw;
+        }
+      }
       .action {
+        margin-top: 5vw;
         .banner {
-          height: 40vh;
+          /*height: 150vw;*/
+          .swipe {
+            /*height: 100%;*/
+          }
         }
       }
     }
