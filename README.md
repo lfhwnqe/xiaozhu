@@ -1,7 +1,7 @@
 # 小猪app
 - 下载
 ```
-git clone 
+git clone https://github.com/lfhwnqe/xiaozhu.git
 ```
 - 安装依赖
 ```
