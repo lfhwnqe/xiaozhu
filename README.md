@@ -1,16 +1,17 @@
 # 小猪app
-- 下载
+下载
 ```
 git clone https://github.com/lfhwnqe/xiaozhu.git
 ```
-- 安装依赖
+安装依赖
 ```
 npm install
 ```
-- 运行
+运行
 ```
 npm run dev
 ```
+请使用手机浏览
 
 ### 使用vue2+vue-router+webpack+ES6
 

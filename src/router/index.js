@@ -32,14 +32,7 @@ const navBar = [
       name: '发现',
       url: '../static/img/discover.svg',
       actUrl: '../static/img/disac.svg'
-    },
-    children: [
-      {
-        path: 'houseinfo',
-        component: houseInfo,
-        name: 'info'
-      }
-    ]
+    }
   },
   {
     path: '/order',

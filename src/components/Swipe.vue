@@ -51,8 +51,9 @@
         this.indexActive = index
       },
       goToInfo (k) {
-//        this.$router.push('main/' + routes[1].children[0].path + '?id=' + k.type)
-        this.$router.push(routes[2].children[0].path)
+        this.$router.push({
+          path: routes[0].path, query: {id: k.id}
+        })
       }
     }
   }
