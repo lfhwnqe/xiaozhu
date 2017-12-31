@@ -1,4 +1,20 @@
 # 小猪app
+- 下载
+```
+git clone 
+```
+- 安装依赖
+```
+npm install
+```
+- 运行
+```
+npm run dev
+```
+
+### 使用vue2+vue-router+webpack+ES6
+
+
 1. 主页
     - 结构
         - 顶部视频
