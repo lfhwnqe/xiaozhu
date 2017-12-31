@@ -15,15 +15,15 @@
     <div class="actions">
       <div class="action" v-for="list in recommendList">
         <!-- 需要v-for渲染 -->
-        <h4>{{list.title}}</h4>
-        <h5>{{list.content}}</h5>
+        <h3>{{list.title}}</h3>
+        <h4>{{list.content}}</h4>
         <div class="banner">
           <Swipe :listData="list.houseLists" :listInfo="list"></Swipe>
         </div>
       </div>
       <div class="action onlyAction" v-for="list in actionList">
-        <h4>{{list.title}}</h4>
-        <h5>{{list.content}}</h5>
+        <h3>{{list.title}}</h3>
+        <h4>{{list.content}}</h4>
         <Swipe :listData=" list.houseLists" :listInfo="list"></Swipe>
       </div>
     </div>
@@ -125,6 +125,14 @@
       }
     }
     .actions {
+      .action {
+        h3 {
+          font-weight: 800;
+        }
+        h4 {
+          font-weight: 200;
+        }
+      }
       .onlyAction {
         .bannerImg {
           height: 50vw;

@@ -9,12 +9,13 @@
 </template>
 
 <script>
-  import {routes} from '@/router/index'
+  // 导航组件
+  import {navBar} from '@/router/index'
 
   export default {
     data () {
       return {
-        data: routes,
+        data: navBar, // 根据一级路由进行导航
         active: null
       }
     },
@@ -23,7 +24,7 @@
     },
     methods: {
       goTo (e) {
-        this.$router.push(e.path)
+        this.$router.push(e.path) // 点击导航
         this.active = e
       }
     }
@@ -42,7 +43,7 @@
     justify-content: space-around;
     height: 8vh;
     li {
-      padding: 6px 0;
+      padding: 8px 0;
       width: 25vw;
       img {
         height: 50%;

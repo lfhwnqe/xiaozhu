@@ -3,9 +3,9 @@
     <ul class="bannerIndex">
       <li v-for="(list ,index) in houseList" :class="{imgActive:indexActive===index}">{{index + 1}}</li>
     </ul>
-    <mt-swipe class="bannerImg" :auto="8000" :show-indicators="false" @change="handleChange">
-      <mt-swipe-item v-for="list in listData">
-        <img class="listImg" :src="list.url" alt="">
+    <mt-swipe class="bannerImg" :auto="6000" :show-indicators="false" @change="handleChange">
+      <mt-swipe-item v-for="list in listData" :key="list.price">
+        <img class="listImg" :src="list.url" alt="" @click="goToInfo(list)">
       </mt-swipe-item>
     </mt-swipe>
     <div class="house-content" v-if="activeImg.type">
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+  import {routes} from '@/router'
+
   export default {
     name: 'Swipe',
     props: {
@@ -47,6 +49,10 @@
       handleChange (index) {
         this.activeImg = this.houseList[index]
         this.indexActive = index
+      },
+      goToInfo (k) {
+//        this.$router.push('main/' + routes[1].children[0].path + '?id=' + k.type)
+        this.$router.push(routes[2].children[0].path)
       }
     }
   }
@@ -59,11 +65,14 @@
       display: flex;
       justify-content: center;
       margin: 5px;
+      li {
+        margin: 1px 5px;
+        padding: 0 5px;
+      }
       .imgActive {
         border: 1px solid;
         border-radius: 2px;
-        padding: 0px 1px;
-        margin: 0 5px;
+        padding: 0px 5px;
       }
     }
     .bannerImg {

@@ -4,11 +4,22 @@ import main from '@/components/main/main'
 import me from '@/components/me/me'
 import message from '@/components/message/message'
 import order from '@/components/order/order'
+import houseInfo from '@/components/houseInfo/houseInfo'
 
 Vue.use(Router)
-
 // 设置路由
 const routes = [
+  {
+    path: '/houseinfo',
+    component: houseInfo,
+    name: 'info',
+    meta: {
+      name: '房间详情'
+    }
+  }
+]
+
+const navBar = [
   {
     path: '',
     redirect: '/main'
@@ -21,7 +32,14 @@ const routes = [
       name: '发现',
       url: '../static/img/discover.svg',
       actUrl: '../static/img/disac.svg'
-    }
+    },
+    children: [
+      {
+        path: 'houseinfo',
+        component: houseInfo,
+        name: 'info'
+      }
+    ]
   },
   {
     path: '/order',
@@ -55,6 +73,11 @@ const routes = [
   }
 ]
 
-const router = new Router({routes})
+routes.push(...navBar)
 
-export {router, routes}
+const router = new Router({
+  mode: 'history',
+  routes
+})
+
+export {router, navBar, routes}
