@@ -102,6 +102,7 @@
 
 <style lang="scss">
   #main {
+    margin-bottom: 8vh;
     width: 100vw;
     position: relative;
     .audio {

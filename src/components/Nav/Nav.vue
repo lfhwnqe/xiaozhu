@@ -1,8 +1,8 @@
 <template>
   <ul class="nav">
     <li v-for="(list, index) in data" v-if="index>0" @click="goTo(list)"
-        :class="{routerActive:active===list.path}"
-    ><img :src="active===list.path?list.meta.actUrl:list.meta.url" alt="">
+        :class="{routerActive:active===list.path}">
+      <img :src="active===list.path?list.meta.actUrl:list.meta.url" alt="">
       <div>{{list.meta.name}}</div>
     </li>
   </ul>
