@@ -5,6 +5,7 @@ import me from '@/components/me/me'
 import message from '@/components/message/message'
 import order from '@/components/order/order'
 import houseInfo from '@/components/houseInfo/houseInfo'
+import search from '@/components/search/search'
 
 Vue.use(Router)
 // 设置路由
@@ -15,6 +16,14 @@ const routes = [
     name: 'info',
     meta: {
       name: '房间详情'
+    }
+  },
+  {
+    path: '/search',
+    component: search,
+    name: 'search',
+    meta: {
+      name: '搜索页'
     }
   }
 ]

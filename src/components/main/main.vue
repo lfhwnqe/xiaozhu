@@ -8,7 +8,7 @@
     </div>
     <div class="search-bar">
       <div class="search-body">
-        <el-button class="search-btn" type="primary" icon="el-icon-search">搜索目的地</el-button>
+        <el-button class="search-btn" type="primary" icon="el-icon-search" @click="linkToSearch">搜索目的地</el-button>
       </div>
     </div>
     <!--综合推荐房间与活动-->
@@ -91,6 +91,9 @@
         axios.get(url.cityLists).then((res) => {
           this.cityLists = res.data.result
         })
+      },
+      linkToSearch () {
+        this.$router.push('/search')
       }
     },
     components: {
