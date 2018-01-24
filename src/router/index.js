@@ -78,7 +78,7 @@ const navBar = [
 routes.push(...navBar)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes
 })
 
